@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "wouter";
 import { ShoppingBag, Check, Minus, Plus, ChevronRight } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
-import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
-import type { Product } from "@shared/schema";
+import { ProductCard } from "../components/ProductCard";
+import { PRODUCTS, getProductBySlug } from "../data/products";
 
 const PRODUCT_DESCRIPTIONS: Record<string, { description: string; tasting: string; brewing: string }> = {
   "50-grams-wild-kopi-luwak-coffee-beans": {
@@ -29,29 +28,8 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const { addItem } = useCart();
 
-  const { data: product, isLoading } = useQuery<Product>({
-    queryKey: ["/api/products", slug],
-  });
-
-  const { data: allProducts } = useQuery<Product[]>({
-    queryKey: ["/api/products"],
-  });
-
-  if (isLoading) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="aspect-square bg-muted rounded-lg animate-pulse" />
-          <div className="space-y-4">
-            <div className="h-8 bg-muted rounded w-3/4 animate-pulse" />
-            <div className="h-10 bg-muted rounded w-1/4 animate-pulse" />
-            <div className="h-20 bg-muted rounded animate-pulse" />
-            <div className="h-12 bg-muted rounded w-1/2 animate-pulse" />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const product = getProductBySlug(slug ?? "");
+  const allProducts = PRODUCTS;
 
   if (!product) {
     return (
@@ -66,7 +44,7 @@ export default function ProductDetail() {
   const imageUrl = product.images?.[0]?.src || "";
   const imageAlt = product.images?.[0]?.alt || product.name;
   const details = PRODUCT_DESCRIPTIONS[product.slug] || PRODUCT_DESCRIPTIONS["50-grams-wild-kopi-luwak-coffee-beans"];
-  const relatedProducts = allProducts?.filter((p) => p.id !== product.id) || [];
+  const relatedProducts = allProducts.filter((p) => p.id !== product.id);
 
   const handleAddToCart = () => {
     addItem({

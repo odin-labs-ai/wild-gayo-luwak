@@ -1,13 +1,10 @@
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
-import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
+import { ProductCard } from "../components/ProductCard";
 import { Shield, Leaf, Package, Globe, Truck, HeadphonesIcon, Coffee } from "lucide-react";
-import type { Product } from "@shared/schema";
+import { PRODUCTS } from "../data/products";
 
 export default function Home() {
-  const { data: products, isLoading } = useQuery<Product[]>({
-    queryKey: ["/api/products"],
-  });
+  const products = PRODUCTS;
 
   return (
     <div>
@@ -89,17 +86,9 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {isLoading ? (
-              <>
-                <ProductCardSkeleton />
-                <ProductCardSkeleton />
-                <ProductCardSkeleton />
-              </>
-            ) : (
-              products?.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            )}
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </section>
