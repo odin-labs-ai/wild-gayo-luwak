@@ -101,10 +101,10 @@ export function Footer() {
         <div className="mt-14 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex flex-wrap gap-4 text-xs opacity-50">
-              <span>Privacy Policy</span>
-              <span>Terms &amp; Conditions</span>
-              <span>Return Policy</span>
-              <span>Cookie Policy</span>
+              <Link href="/privacy-policy" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="hover:opacity-80 transition-opacity">Terms &amp; Conditions</Link>
+              <Link href="/return-policy" className="hover:opacity-80 transition-opacity">Return Policy</Link>
+              <Link href="/cookie-policy" className="hover:opacity-80 transition-opacity">Cookie Policy</Link>
             </div>
             <p className="text-xs opacity-50">
               © 2015–{new Date().getFullYear()} Wild Gayo Luwak. All rights reserved.

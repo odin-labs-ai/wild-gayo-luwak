@@ -7,6 +7,22 @@ const WC_BASE = process.env.WC_BASE || "https://wildgayoluwak.com/wp-json/wc/v3"
 const WC_KEY = process.env.WC_KEY || "";
 const WC_SECRET = process.env.WC_SECRET || "";
 
+// Simple in-memory rate limiter for contact form
+const contactRateLimit = new Map<string, { count: number; resetAt: number }>();
+const CONTACT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const CONTACT_MAX_REQUESTS = 5;
+
+function isContactRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = contactRateLimit.get(ip);
+  if (!entry || now > entry.resetAt) {
+    contactRateLimit.set(ip, { count: 1, resetAt: now + CONTACT_WINDOW_MS });
+    return false;
+  }
+  entry.count++;
+  return entry.count > CONTACT_MAX_REQUESTS;
+}
+
 // Fallback products if WooCommerce API is slow/unavailable
 const FALLBACK_PRODUCTS = [
   {
@@ -91,6 +107,11 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
   
+  // GET /health — health check endpoint
+  app.get("/health", (_req, res) => {
+    res.json({ status: "ok", service: "wild-gayo-luwak", timestamp: new Date().toISOString() });
+  });
+
   // GET /api/products — list published products
   app.get("/api/products", async (_req, res) => {
     try {
@@ -127,8 +148,20 @@ export async function registerRoutes(
     }
   });
 
-  // POST /api/contact — save contact form
+  // POST /api/contact — save contact form (rate limited)
   app.post("/api/contact", async (req, res) => {
+    const clientIp = req.ip || req.socket.remoteAddress || "unknown";
+    if (isContactRateLimited(clientIp)) {
+      res.status(429).json({ error: "Too many requests. Please try again later." });
+      return;
+    }
+
+    // Honeypot check — if the hidden "website" field is filled, it's a bot
+    if (req.body.website) {
+      res.json({ success: true, id: 0 });
+      return;
+    }
+
     try {
       const parsed = insertContactMessageSchema.parse({
         ...req.body,

@@ -1,8 +1,15 @@
 import { contactMessages, type InsertContactMessage, type ContactMessage } from "@shared/schema";
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
+import path from "path";
+import fs from "fs";
 
-const sqlite = new Database("data.db");
+// Use DATA_DIR env var for Docker volume mount, fallback to ./data for local dev
+const dataDir = process.env.DATA_DIR || "./data";
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+const sqlite = new Database(path.join(dataDir, "data.db"));
 const db = drizzle(sqlite);
 
 // Push schema

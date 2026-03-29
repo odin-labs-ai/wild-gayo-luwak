@@ -1,6 +1,6 @@
 services:
   web:
-    build: .
+    image: ghcr.io/odin-labs-ai/wild-gayo-luwak:latest
     container_name: wgl-web
     env_file:
       - .env
@@ -21,7 +21,6 @@ services:
       - "traefik.http.routers.wgl.tls.certresolver=letsencrypt"
       - "traefik.http.services.wgl.loadbalancer.server.port=5000"
       - "traefik.http.routers.wgl.priority=100"
-      # www -> non-www redirect
       - "traefik.http.routers.wgl-www.rule=Host(`www.wildgayoluwak.com`)"
       - "traefik.http.routers.wgl-www.entrypoints=websecure"
       - "traefik.http.routers.wgl-www.tls.certresolver=letsencrypt"
