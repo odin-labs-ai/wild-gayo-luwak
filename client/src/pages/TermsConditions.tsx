@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 export default function TermsConditions() {
   return (
     <div>
@@ -14,89 +16,227 @@ export default function TermsConditions() {
 
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-stone dark:prose-invert max-w-none">
-          <p className="text-sm text-muted-foreground mb-8">
-            Last updated: March 29, 2026
+
+          <h2 className="font-serif text-xl font-bold mb-4">Overview</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            This website is operated by COFSPICO Wild Gayo Luwak (KVK 72430273). Throughout the site, the terms "we", "us"
+            and "our" refer to COFSPICO Wild Gayo Luwak. COFSPICO Wild Gayo Luwak offers this website, including all
+            information, tools and services available from this site to you, the user, conditioned upon your acceptance
+            of all terms, conditions, policies and notices stated here.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound
+            by the following terms and conditions ("Terms of Service", "Terms"), including those additional terms and
+            conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to
+            all users of the site, including without limitation users who are browsers, vendors, customers, merchants,
+            and/or contributors of content.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Please read these Terms of Service carefully before accessing or using our website. By accessing or using
+            any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the
+            terms and conditions of this agreement, then you may not access the website or use any services.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">1. General</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 1 — Online Store Terms</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            These General Terms and Conditions apply to all offers, orders, and agreements of Wild Gayo Luwak,
-            operated by COFSPICO, registered at Rotiusstraat 7, 1624 GA Hoorn, Netherlands. By placing an order
-            or using this website, you agree to be bound by these terms. Dutch law applies to all transactions.
+            By agreeing to these Terms of Service, you represent that you are at least the age of majority in your
+            state or province of residence, or that you are the age of majority in your state or province of residence
+            and you have given us your consent to allow any of your minor dependents to use this site. You may not use
+            our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any
+            laws in your jurisdiction (including but not limited to copyright laws). You must not transmit any worms
+            or viruses or any code of a destructive nature. A breach or violation of any of the Terms will result in
+            an immediate termination of your Services.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">2. Products &amp; Pricing</h2>
-          <ul className="list-disc pl-6 text-muted-foreground space-y-2 mb-6">
-            <li>All prices are listed in Euros and include VAT where applicable.</li>
-            <li>We reserve the right to change prices at any time. Orders placed before a price change will be honored at the original price.</li>
-            <li>Product images are representative. Natural products may vary slightly in appearance.</li>
-            <li>Wild Kopi Luwak is a seasonal product with limited availability. We reserve the right to limit quantities per order.</li>
-          </ul>
-
-          <h2 className="font-serif text-xl font-bold mb-4">3. Orders &amp; Payment</h2>
-          <ul className="list-disc pl-6 text-muted-foreground space-y-2 mb-6">
-            <li>An order is confirmed once you receive an order confirmation email from us.</li>
-            <li>Payment is processed securely through our payment provider at checkout.</li>
-            <li>We accept major credit cards, iDEAL, Bancontact, and other payment methods as displayed at checkout.</li>
-            <li>Orders are freshly roasted and typically shipped within 2-5 business days.</li>
-          </ul>
-
-          <h2 className="font-serif text-xl font-bold mb-4">4. Shipping</h2>
-          <ul className="list-disc pl-6 text-muted-foreground space-y-2 mb-6">
-            <li><strong>Netherlands:</strong> Free express shipping on all orders.</li>
-            <li><strong>Belgium, Luxembourg, Germany, France:</strong> Flat rate of EUR 15.00.</li>
-            <li><strong>Rest of Europe:</strong> EUR 19.90.</li>
-            <li><strong>Worldwide:</strong> EUR 35.00.</li>
-            <li>Delivery times vary by destination. We ship from Hoorn, Netherlands (EU).</li>
-            <li>Risk of loss transfers to you upon delivery to the carrier.</li>
-          </ul>
-
-          <h2 className="font-serif text-xl font-bold mb-4">5. Right of Withdrawal (EU Consumers)</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 2 — General Conditions</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Under the EU Consumer Rights Directive, you have the right to withdraw from your purchase within
-            14 days of receiving your order, without giving any reason. To exercise this right, contact us at{" "}
-            <a href="mailto:info@wildgayoluwak.com" className="text-secondary hover:underline">info@wildgayoluwak.com</a>{" "}
-            with your order number. Please note that the right of withdrawal does not apply to sealed goods
-            that have been opened after delivery (food safety regulation).
+            We reserve the right to refuse service to anyone for any reason at any time. You understand that your
+            content (not including credit card information), may be transferred unencrypted and involve (a) transmissions
+            over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks
+            or devices. Credit card information is always encrypted during transfer over networks. You agree not to
+            reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or
+            access to the Service or any contact on the website through which the service is provided, without express
+            written permission by us.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">6. Product Quality &amp; Certification</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 3 — Accuracy, Completeness and Timeliness of Information</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            All Wild Gayo Luwak coffee is 100% certified wild-foraged Kopi Luwak from the Gayo Highlands,
-            Sumatra, Indonesia. Each batch is independently verified by third-party auditors. Our products
-            comply with all applicable EU food safety regulations. We roast in the EU under Dutch food safety standards.
+            We are not responsible if information made available on this site is not accurate, complete or current.
+            The material on this site is provided for general information only and should not be relied upon or used
+            as the sole basis for making decisions without consulting primary, more accurate, more complete or more
+            timely sources of information. Any reliance on the material on this site is at your own risk. This site
+            may contain certain historical information. Historical information, necessarily, is not current and is
+            provided for your reference only. We reserve the right to modify the contents of this site at any time,
+            but we have no obligation to update any information on our site.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">7. Limitation of Liability</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 4 — Modifications to the Service and Prices</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            To the maximum extent permitted by law, Wild Gayo Luwak shall not be liable for any indirect,
-            incidental, or consequential damages arising from the use of our products or website. Our total
-            liability shall not exceed the amount paid for the specific product giving rise to the claim.
+            Prices for our products are subject to change without notice. We reserve the right at any time to modify
+            or discontinue the Service (or any part or content thereof) without notice at any time. We shall not be
+            liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">8. Intellectual Property</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 5 — Products or Services</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            All content on this website, including text, images, logos, and design, is the property of
-            Wild Gayo Luwak / COFSPICO and is protected by copyright and trademark law. You may not
-            reproduce, distribute, or use any content without our prior written consent.
+            Certain products or services may be available exclusively online through the website. These products or
+            services may have limited quantities and are subject to return or exchange only according to our{" "}
+            <Link href="/return-policy" className="text-secondary hover:underline">Return Policy</Link>.
+            We have made every effort to display as accurately as possible the colors and images of our products that
+            appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.
+            We reserve the right, but are not obligated, to limit the sales of our products or Services to any person,
+            geographic region or jurisdiction. All descriptions of products or product pricing are subject to change at
+            any time without notice, at our sole discretion. We reserve the right to discontinue any product at any time.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">9. Governing Law &amp; Disputes</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 6 — Accuracy of Billing and Account Information</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            These terms are governed by the laws of the Netherlands. Any disputes shall be submitted to
-            the competent court in the Netherlands. For EU consumers, the European Online Dispute Resolution
+            We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel
+            quantities purchased per person, per household or per order. These restrictions may include orders placed by
+            or under the same customer account, the same credit card, and/or orders that use the same billing and/or
+            shipping address. You agree to provide current, complete and accurate purchase and account information for
+            all purchases made at our store. You agree to promptly update your account and other information, including
+            your email address and credit card numbers and expiration dates, so that we can complete your transactions
+            and contact you as needed.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 7 — Optional Tools</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            We may provide you with access to third-party tools over which we neither monitor nor have any control nor
+            input. You acknowledge and agree that we provide access to such tools "as is" and "as available" without any
+            warranties, representations or conditions of any kind and without any endorsement. We shall have no liability
+            whatsoever arising from or relating to your use of optional third-party tools. Any use by you of optional
+            tools offered through the site is entirely at your own risk and discretion.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 8 — Third-Party Links</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Certain content, products and services available via our Service may include materials from third-parties.
+            Third-party links on this site may direct you to third-party websites that are not affiliated with us. We
+            are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not
+            have any liability or responsibility for any third-party materials or websites, or for any other materials,
+            products, or services of third-parties.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 9 — User Comments, Feedback and Other Submissions</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            If, at our request, you send certain specific submissions or without a request from us you send creative
+            ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or
+            otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, edit, copy,
+            publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are
+            and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for
+            any comments; or (3) to respond to any comments.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 10 — Personal Information</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Your submission of personal information through the store is governed by our{" "}
+            <Link href="/privacy-policy" className="text-secondary hover:underline">Privacy Policy</Link>.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 11 — Errors, Inaccuracies and Omissions</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Occasionally there may be information on our site or in the Service that contains typographical errors,
+            inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product
+            shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies
+            or omissions, and to change or update information or cancel orders if any information in the Service or on
+            any related website is inaccurate at any time without prior notice (including after you have submitted your order).
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 12 — Prohibited Uses</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the
+            site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any
+            unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or
+            local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual
+            property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or
+            discriminate; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other
+            type of malicious code; (h) to collect or track the personal information of others; (i) to spam, phish,
+            pharm, pretext, spider, crawl, or scrape; (j) for any obscene or immoral purpose; or (k) to interfere with
+            or circumvent the security features of the Service. We reserve the right to terminate your use of the
+            Service for violating any of the prohibited uses.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 13 — Disclaimer of Warranties; Limitation of Liability</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure
+            or error-free. We do not warrant that the results that may be obtained from the use of the service will be
+            accurate or reliable. You expressly agree that your use of, or inability to use, the service is at your sole
+            risk. The service and all products and services delivered to you through the service are (except as expressly
+            stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or
+            conditions of any kind, either express or implied. In no case shall COFSPICO Wild Gayo Luwak, our directors,
+            officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be
+            liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential
+            damages of any kind.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 14 — Indemnification</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            You agree to indemnify, defend and hold harmless COFSPICO Wild Gayo Luwak and our parent, subsidiaries,
+            affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors,
+            suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys' fees,
+            made by any third-party due to or arising out of your breach of these Terms of Service or the documents
+            they incorporate by reference, or your violation of any law or the rights of a third-party.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 15 — Severability</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable,
+            such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the
+            unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not
+            affect the validity and enforceability of any other remaining provisions.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 16 — Termination</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            The obligations and liabilities of the parties incurred prior to the termination date shall survive the
+            termination of this agreement for all purposes. These Terms of Service are effective unless and until
+            terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that
+            you no longer wish to use our Services, or when you cease using our site.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 17 — Entire Agreement</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute
+            a waiver of such right or provision. These Terms of Service and any policies or operating rules posted by us
+            on this site or in respect to the Service constitutes the entire agreement and understanding between you and
+            us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications
+            and proposals, whether oral or written, between you and us.
+          </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 18 — Governing Law</h2>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and
+            construed in accordance with the laws of the Netherlands. For EU consumers, the European Online Dispute Resolution
             platform is available at{" "}
             <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
               ec.europa.eu/consumers/odr
             </a>.
           </p>
 
-          <h2 className="font-serif text-xl font-bold mb-4">10. Contact</h2>
+          <h2 className="font-serif text-xl font-bold mb-4">Section 19 — Changes to Terms of Service</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            For questions about these terms, contact us at{" "}
-            <a href="mailto:info@wildgayoluwak.com" className="text-secondary hover:underline">info@wildgayoluwak.com</a>{" "}
-            or by mail at: COFSPICO / Wild Gayo Luwak, Rotiusstraat 7, 1624 GA Hoorn, Netherlands.
+            You can review the most current version of the Terms of Service at any time at this page. We reserve the
+            right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting
+            updates and changes to our website. It is your responsibility to check our website periodically for changes.
+            Your continued use of or access to our website or the Service following the posting of any changes to these
+            Terms of Service constitutes acceptance of those changes.
           </p>
+
+          <h2 className="font-serif text-xl font-bold mb-4">Section 20 — Contact Information</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            Questions about the Terms of Service should be sent to us at{" "}
+            <a href="mailto:info@wildgayoluwak.com" className="text-secondary hover:underline">info@wildgayoluwak.com</a>.
+          </p>
+          <address className="not-italic text-muted-foreground leading-relaxed">
+            <p className="font-semibold">COFSPICO</p>
+            <p>Rotiusstraat 7</p>
+            <p>1624 GA Hoorn, The Netherlands</p>
+            <p>KVK 72430273</p>
+            <p className="mt-2">
+              <a href="mailto:info@wildgayoluwak.com" className="text-secondary hover:underline">info@wildgayoluwak.com</a>
+            </p>
+          </address>
         </div>
       </section>
     </div>

@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
 
           <h2 className="font-serif text-xl font-bold mb-4">1. Who We Are</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Wild Gayo Luwak is operated by COFSPICO, registered at Rotiusstraat 7, 1624 GA Hoorn, Netherlands.
+            Wild Gayo Luwak is operated by COFSPICO (KVK 72430273), registered at Rotiusstraat 7, 1624 GA Hoorn, Netherlands.
             We are committed to protecting your privacy and handling your personal data transparently and in compliance
             with the General Data Protection Regulation (GDPR) and applicable Dutch privacy law.
           </p>

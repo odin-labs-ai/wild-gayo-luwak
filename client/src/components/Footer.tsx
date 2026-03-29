@@ -85,7 +85,7 @@ export function Footer() {
               Contact
             </h3>
             <address className="not-italic text-sm opacity-70 space-y-1.5 leading-relaxed">
-              <p className="font-medium opacity-90">COFSPICO / Wild Gayo Luwak</p>
+              <p className="font-medium opacity-90">COFSPICO / Wild Gayo Luwak (KVK 72430273)</p>
               <p>Rotiusstraat 7</p>
               <p>1624 GA Hoorn, Netherlands</p>
               <p className="mt-3">
