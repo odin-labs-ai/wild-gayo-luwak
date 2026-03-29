@@ -12,9 +12,9 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
-  base: "/wild-gayo-luwak/",
+  base: "./",
   build: {
-    outDir: path.resolve(import.meta.dirname, "../gh-pages-dist"),
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
   server: {

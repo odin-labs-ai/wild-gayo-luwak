@@ -3,9 +3,9 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 
-const WC_BASE = "https://wildgayoluwak.com/wp-json/wc/v3";
-const WC_KEY = "ck_6dcf0af684f4cf9461fe550df50d0c5fb67c6337";
-const WC_SECRET = "cs_077cd3142ed2a589191d5bd07ddd540fd4a8e24e";
+const WC_BASE = process.env.WC_BASE || "https://wildgayoluwak.com/wp-json/wc/v3";
+const WC_KEY = process.env.WC_KEY || "";
+const WC_SECRET = process.env.WC_SECRET || "";
 
 // Fallback products if WooCommerce API is slow/unavailable
 const FALLBACK_PRODUCTS = [

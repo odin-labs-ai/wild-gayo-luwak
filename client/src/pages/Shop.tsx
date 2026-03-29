@@ -1,9 +1,12 @@
-import { ProductCard } from "../components/ProductCard";
+import { useQuery } from "@tanstack/react-query";
+import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Truck, HeadphonesIcon, Package } from "lucide-react";
-import { PRODUCTS } from "../data/products";
+import type { Product } from "@shared/schema";
 
 export default function Shop() {
-  const products = PRODUCTS;
+  const { data: products, isLoading } = useQuery<Product[]>({
+    queryKey: ["/api/products"],
+  });
 
   return (
     <div>
@@ -41,9 +44,17 @@ export default function Shop() {
       <section className="py-16 md:py-24" data-testid="shop-products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {isLoading ? (
+              <>
+                <ProductCardSkeleton />
+                <ProductCardSkeleton />
+                <ProductCardSkeleton />
+              </>
+            ) : (
+              products?.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </section>
