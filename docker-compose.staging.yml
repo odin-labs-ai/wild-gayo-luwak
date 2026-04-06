@@ -1,0 +1,32 @@
+services:
+  web:
+    image: ghcr.io/odin-labs-ai/wild-gayo-luwak:latest
+    container_name: wgl-web
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - DATA_DIR=/app/data
+    restart: unless-stopped
+    volumes:
+      - db-data:/app/data
+    networks:
+      - default
+      - traefik
+    labels:
+      - "odin.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.wgl.rule=Host(`wgl.odin-labs.ai`)"
+      - "traefik.http.routers.wgl.entrypoints=websecure"
+      - "traefik.http.routers.wgl.tls.certresolver=letsencrypt"
+      - "traefik.http.services.wgl.loadbalancer.server.port=5000"
+      - "traefik.http.routers.wgl.priority=100"
+
+volumes:
+  db-data:
+
+networks:
+  traefik:
+    external: true
+    name: control-tower_odin-network
