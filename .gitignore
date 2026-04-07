@@ -5,3 +5,4 @@ data.db
 .env
 *.db-journal
 gh-pages-dist/
+.ai/
