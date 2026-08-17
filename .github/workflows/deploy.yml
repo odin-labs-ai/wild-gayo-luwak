@@ -21,14 +21,44 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      # rule 02 §9: push ONLY the immutable :<sha> here. :latest is promoted at
+      # the end of this job and only on a PASS verdict — before this change a
+      # crash-looping image became :latest the instant the build finished, and
+      # the `deploy` job below pulls :latest, so a broken build deployed itself.
+      - name: Build and push Docker image (immutable :<sha> only — :latest is gated below)
+        id: push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: |
-            ghcr.io/odin-labs-ai/wild-gayo-luwak:latest
             ghcr.io/odin-labs-ai/wild-gayo-luwak:${{ github.sha }}
+
+      # Runs against the immutable DIGEST, never a tag (rule 02 §9). health-endpoint
+      # drives the image's own HEALTHCHECK (Dockerfile: wget -qO- 127.0.0.1:5000/health).
+      #
+      # This probe was MEASURED against the currently-published :latest before
+      # being wired, because a gate that cannot pass is as useless as no gate:
+      # the container reached health=healthy in 10s with no database and no
+      # network dependency — only NODE_ENV, which the action supplies.
+      - name: Image smoke gate — health (gates :latest promotion)
+        id: smoke
+        uses: odin-labs-ai/local-agents/.github/actions/image-smoke-gate@6da203f7e44c92dd249ef729da882c8755dd1fad
+        with:
+          image-ref: ghcr.io/odin-labs-ai/wild-gayo-luwak@${{ steps.push.outputs.digest }}
+          probe-mode: health-endpoint
+          port: '5000'
+          health-path: /health
+          timeout-seconds: '120'
+
+      - name: Promote to :latest (ONLY on smoke verdict PASS)
+        if: steps.smoke.outputs.verdict == 'PASS'
+        run: |
+          set -euo pipefail
+          docker buildx imagetools create \
+            --tag ghcr.io/odin-labs-ai/wild-gayo-luwak:latest \
+            ghcr.io/odin-labs-ai/wild-gayo-luwak@${{ steps.push.outputs.digest }}
+          echo "Promoted @${{ steps.push.outputs.digest }} -> :latest (health PASS)"
 
   deploy:
     needs: build-and-push
