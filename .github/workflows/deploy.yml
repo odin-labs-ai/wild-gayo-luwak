@@ -41,9 +41,47 @@ jobs:
       # being wired, because a gate that cannot pass is as useless as no gate:
       # the container reached health=healthy in 10s with no database and no
       # network dependency — only NODE_ENV, which the action supplies.
+      # The composite action lives in the PRIVATE odin-labs-ai/local-agents repo.
+      # A cross-repo `uses: odin-labs-ai/local-agents/...` CANNOT resolve from
+      # here: this job's GITHUB_TOKEN is scoped to THIS repo and local-agents'
+      # Actions access level is `none`. GitHub resolves remote `uses:` refs at
+      # JOB SETUP, so the job dies before its first step with
+      #   "Unable to resolve action `odin-labs-ai/local-agents`, not found".
+      # The gate would be present, SHA-pinned, correctly conditioned — and
+      # UNREACHABLE. Presence is not reachability.
+      #
+      # Working shape, already proven in odin-command-center deploy-quick.yml and
+      # odin-suite hub-release-template.yml: mint an odin-ci-packages-bot App
+      # token (bus-factor >=3, rule 02), check the action out at the SHA-pinned
+      # ref, consume it via a LOCAL path. The pin moves to the checkout `ref:`,
+      # so rule 12 §"never @main" still holds.
+      - name: Mint App token to read local-agents (private action repo)
+        id: smoke-app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.ODIN_BOT_APP_ID }}
+          private-key: ${{ secrets.ODIN_BOT_APP_PRIVATE_KEY }}
+          owner: odin-labs-ai
+          repositories: local-agents
+
+      - name: Check out image-smoke-gate composite action (SHA-pinned)
+        uses: actions/checkout@v4
+        with:
+          repository: odin-labs-ai/local-agents
+          ref: 6da203f7e44c92dd249ef729da882c8755dd1fad
+          token: ${{ steps.smoke-app-token.outputs.token }}
+          path: .smoke-gate-action
+          sparse-checkout: .github/actions/image-smoke-gate
+          sparse-checkout-cone-mode: false
+          # fetch-depth: 0 = full clone, NOT a blobless partial clone. With
+          # sparse-checkout + a SHA `ref:`, checkout@v4 defaults to blob:none and
+          # blob backfill re-contacts the promisor remote WITHOUT the App token,
+          # exiting 128. That broke every CC deploy for two days.
+          fetch-depth: 0
+
       - name: Image smoke gate — health (gates :latest promotion)
         id: smoke
-        uses: odin-labs-ai/local-agents/.github/actions/image-smoke-gate@6da203f7e44c92dd249ef729da882c8755dd1fad
+        uses: ./.smoke-gate-action/.github/actions/image-smoke-gate
         with:
           image-ref: ghcr.io/odin-labs-ai/wild-gayo-luwak@${{ steps.push.outputs.digest }}
           probe-mode: health-endpoint
